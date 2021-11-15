@@ -96,6 +96,8 @@ namespace SqlServerSchemaExportTool
             if (!String.IsNullOrWhiteSpace(schema))
                 schema = $"{schema}.";
 
+            name = name.Replace(@"\", " ");
+
             var fileName = $"{folder}{schema}{name}.{type}.{extension}";
 
             using (var sw = File.CreateText(fileName))
